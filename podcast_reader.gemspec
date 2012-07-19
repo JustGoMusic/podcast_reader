@@ -1,10 +1,8 @@
 # -*- encoding: utf-8 -*-
 
-require File.expand_path('../lib/podcast_reader', __FILE__)
-
 Gem::Specification.new do |gem|
   gem.name          = "podcast_reader"
-  gem.version       = PodcastReader::VERSION
+  gem.version       = 0.1
   gem.summary       = %q{A example gem for reading podcast rss feeds}
   gem.description   = %q{A example gem for reading podcast rss feeds}
   gem.license       = "MIT"

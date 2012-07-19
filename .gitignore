@@ -1,4 +1,5 @@
 Gemfile.lock
 html/
 pkg/
+nbproject/
 vendor/cache/*.gem

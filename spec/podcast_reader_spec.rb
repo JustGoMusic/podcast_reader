@@ -70,6 +70,14 @@ describe PodcastReader do
         item.description.should_not be_nil
         item.url.should_not be_nil
       end
+
+      it 'should parse duration correctly' do
+        podcast = PodcastReader.new('http://podcasts.example.com/valid_with_2_items.xml')
+        item1 = podcast.items.first
+        item1.duration.should == 7342
+        item2 = podcast.items[1]
+        item2.duration.should == 3661
+      end
       
       it 'should have the itunes item attributes' do
         podcast = PodcastReader.new('http://podcasts.example.com/valid_with_2_items.xml')
@@ -112,8 +120,8 @@ describe PodcastReader do
         it 'allows the item to be converted to another format' do
           pending 'Future consideration'
           # e.g.
-          # @item.download_to(File.join(@save_dir, 'example2.mp3'), 'mp3')
-          # File.exists?(File.join(@save_dir, 'example2.mp3'))
+          @item.download_to(File.join(@save_dir, 'example2.mp3'), 'mp3')
+          File.exists?(File.join(@save_dir, 'example2.mp3'))
         end
         
         it 'allows the podcast image to be downloaded to the specified directory' do

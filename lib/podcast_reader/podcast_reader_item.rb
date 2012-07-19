@@ -1,5 +1,6 @@
 require 'nokogiri'
 require 'open-uri'
+require 'chronic_duration'
 
 class PodcastReaderItem
   def initialize(item_node)
@@ -13,12 +14,14 @@ class PodcastReaderItem
   def author;           item_attr('itunes:author');       end
   def subtitle;         item_attr('itunes:subtitle');     end
   def summary;          item_attr('itunes:summary');      end
-  def duration;         item_attr('itunes:duration');     end
 
   def url;              item_attr('enclosure', 'url');    end
   def content_type;     item_attr('enclosure', 'size');   end
   def file_size;        item_attr('enclosure', 'length'); end
 
+  def duration
+    ChronicDuration.parse(item_attr('itunes:duration')).to_i if item_attr('itunes:duration')
+  end
 
   def keywords
     item_attr('itunes:keywords').to_s.split(',')

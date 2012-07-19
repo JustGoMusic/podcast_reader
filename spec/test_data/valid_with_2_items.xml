@@ -32,7 +32,7 @@
       <itunes:author>Example Author 2</itunes:author>
       <itunes:subtitle>Example Subtitle 2</itunes:subtitle>
       <itunes:keywords>dance,david,electronica,guetta,house,podcast,radio,video</itunes:keywords>
-      <itunes:duration>2:02:22</itunes:duration>
+      <itunes:duration>122:22</itunes:duration>
       <description>Podcast 2 Example Description</description>
 
       <itunes:link rel="image" type="video/jpeg" href="http://podcasts.example.com/example2.jpg">Podcast 2 Example Image</itunes:link>
@@ -46,7 +46,7 @@
       <itunes:author>Example Author 1</itunes:author>
       <itunes:subtitle>Example Subtitle 1</itunes:subtitle>
       <itunes:keywords>dance,david,electronica,guetta,house,podcast,radio,video</itunes:keywords>
-      <itunes:duration>1:01:11</itunes:duration>
+      <itunes:duration>3661</itunes:duration>
       <description>Podcast 1 Example Description</description>
 
       <itunes:link rel="image" type="video/jpeg" href="http://podcasts.example.com/example1.jpg">Podcast 1 Example Image</itunes:link>
