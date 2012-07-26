@@ -17,11 +17,7 @@ class PodcastReader
   def language;         attr('/rss/channel/language');              end
   def last_build_date;  attr('/rss/channel/lastBuildDate');         end
   def site_link;        attr('/rss/channel/link');                  end
-  
-  def image_url;        attr('/rss/channel/itunes:image', 'href');  end
-  def image_title;      attr('/rss/channel/image/title');           end
-  def image_link;       attr('/rss/channel/image/link');            end
-  
+
   def author;           attr('/rss/channel/itunes:author');         end
   def subtitle;         attr('/rss/channel/itunes:subtitle');       end
   def summary;          attr('/rss/channel/itunes:summary');        end
@@ -29,7 +25,15 @@ class PodcastReader
   def keywords
     attr('/rss/channel/itunes:keywords').to_s.split(',')
   end
-  
+
+  def image_url
+    url = attr('/rss/channel/itunes:image', 'href')
+
+    url = attr('/rss/channel/image/url') if not url
+
+    url
+  end
+
   def explicit?
     explicit = attr('/rss/channel/itunes:explicit')
     case explicit
