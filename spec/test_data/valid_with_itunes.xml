@@ -15,6 +15,7 @@
     	<title>Example Podcast</title>
     	<link>http://www.example.com</link>
     </image>
+    <itunes:image href="http://www.example.com/example.jpg"></itunes:image>
     <itunes:link rel="image" type="video/jpeg" href="http://www.example.com/example.jpg">Example Podcast</itunes:link>
     <itunes:keywords>dance,david,electronica,guetta,house,podcast,radio,video</itunes:keywords>
     <itunes:category text="Music" />

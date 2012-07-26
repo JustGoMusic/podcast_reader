@@ -12,19 +12,19 @@ class PodcastReader
     raise 'The supplied url is not a valid podcast rss' if @podcast.at_xpath('/rss').nil?
   end
 
-  def title;            attr('/rss/channel/title');           end
-  def description;      attr('/rss/channel/description');     end
-  def language;         attr('/rss/channel/language');        end
-  def last_build_date;  attr('/rss/channel/lastBuildDate');   end
-  def site_link;        attr('/rss/channel/link');            end
+  def title;            attr('/rss/channel/title');                 end
+  def description;      attr('/rss/channel/description');           end
+  def language;         attr('/rss/channel/language');              end
+  def last_build_date;  attr('/rss/channel/lastBuildDate');         end
+  def site_link;        attr('/rss/channel/link');                  end
   
-  def image_url;        attr('/rss/channel/image/url');       end
-  def image_title;      attr('/rss/channel/image/title');     end
-  def image_link;       attr('/rss/channel/image/link');      end
+  def image_url;        attr('/rss/channel/itunes:image', 'href');  end
+  def image_title;      attr('/rss/channel/image/title');           end
+  def image_link;       attr('/rss/channel/image/link');            end
   
-  def author;           attr('/rss/channel/itunes:author');   end
-  def subtitle;         attr('/rss/channel/itunes:subtitle'); end
-  def summary;          attr('/rss/channel/itunes:summary');  end
+  def author;           attr('/rss/channel/itunes:author');         end
+  def subtitle;         attr('/rss/channel/itunes:subtitle');       end
+  def summary;          attr('/rss/channel/itunes:summary');        end
   
   def keywords
     attr('/rss/channel/itunes:keywords').to_s.split(',')
@@ -67,13 +67,17 @@ class PodcastReader
   end
   
   private
-  
-  def attr(xpath)
+
+  def attr(xpath, attribute = nil)
     node = @podcast.xpath(xpath)
     if node.nil? || node.empty?
       nil
     else
-      node.text
+      if attribute.nil?
+        node.text
+      elsif node.attr(attribute)
+        node.attr(attribute).value
+      end
     end
   end
 end

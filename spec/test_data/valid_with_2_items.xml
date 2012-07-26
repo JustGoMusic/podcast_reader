@@ -15,6 +15,7 @@
     	<title>Example Podcast</title>
     	<link>http://www.example.com</link>
     </image>
+    <itunes:image href="http://podcasts.example.com/example2.jpg"/>
     <itunes:link rel="image" type="video/jpeg" href="http://www.example.com/example.jpg">Example Podcast</itunes:link>
     <itunes:category text="Music" />
     <itunes:summary>iTunes Example Summary</itunes:summary>
