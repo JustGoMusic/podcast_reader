@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |gem|
   gem.name          = "podcast_reader"
-  gem.version       = 0.3
+  gem.version       = 0.4
   gem.summary       = %q{A example gem for reading podcast rss feeds}
   gem.description   = %q{A example gem for reading podcast rss feeds}
   gem.license       = "MIT"
