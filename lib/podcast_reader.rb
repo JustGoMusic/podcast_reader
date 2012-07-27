@@ -27,11 +27,7 @@ class PodcastReader
   end
 
   def image_url
-    url = attr('/rss/channel/itunes:image', 'href')
-
-    url = attr('/rss/channel/image/url') if not url
-
-    url
+    attr('/rss/channel/itunes:image', 'href') || attr('/rss/channel/image/url')
   end
 
   def explicit?
